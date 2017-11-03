@@ -10,7 +10,6 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.platform.ready().then(() => {
-      TheoremReachPlugin.enableDebugMode(true);
       TheoremReachPlugin.onReward(function(quantity) {
         console.log("TheoremReach onReward:" + quantity);
       });
@@ -34,6 +33,7 @@ export class HomePage {
     TheoremReachPlugin.isSurveyAvailable(function(result) {
       if (result) {
         console.log("available");
+        TheoremReachPlugin.enableDebugMode(true);
         TheoremReachPlugin.showRewardCenter();
       } else {
         console.log("unavailable");
